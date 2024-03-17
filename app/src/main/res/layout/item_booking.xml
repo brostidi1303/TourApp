@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:cardCornerRadius="30dp"
+    android:layout_margin="5dp"
+    android:background="@drawable/white_background"
+    app:cardElevation="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ctr1"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/white_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/HistoryImage"
+            android:layout_width="150dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/a1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.36"
+            app:riv_corner_radius="20dp" />
+
+
+        <TextView
+            android:id="@+id/dateCreate"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Ngày đặt: 13/03/2024 "
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/HistoryImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/history_tour_name"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:maxLines="1"
+            android:text="Phú Quốc, Kiên Giang "
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/HistoryImage"
+            app:layout_constraintTop_toBottomOf="@+id/dateCreate" />
+
+        <TextView
+            android:id="@+id/departureDate"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Departure: 9:00 AM  "
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/HistoryImage"
+            app:layout_constraintTop_toBottomOf="@+id/history_tour_name" />
+
+        <TextView
+            android:id="@+id/paymentStatus"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Status: Processing "
+            android:textColor="@color/orange"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/HistoryImage"
+            app:layout_constraintTop_toBottomOf="@+id/departureDate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

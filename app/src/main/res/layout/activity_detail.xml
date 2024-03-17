@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity"
+    android:background="#c7e5f0">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
+            app:popupTheme="@style/MenuStyle" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="MissingConstraints">
+
+                    <ImageView
+                        android:id="@+id/imageDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="330dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/a1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="260dp"
+                        android:layout_marginTop="268dp"
+                        app:layout_constraintStart_toEndOf="@+id/lottieAnimationView"
+                        app:layout_constraintTop_toTopOf="@+id/imageDetail"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/cerfiticate1"
+                        app:lottie_speed="1">
+
+                    </com.airbnb.lottie.LottieAnimationView>
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/lottieAnimationView"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_alignParentTop="true"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/imageDetail"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/new1"
+                        app:lottie_speed="0.5">
+
+                    </com.airbnb.lottie.LottieAnimationView>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/txt_tourname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:padding="5dp"
+                        android:text="Tour ngắm hoàng hôn và câu mực đêm trên đảo Phú Quốc - Nửa ngày"
+                        android:textAlignment="center"
+                        android:textColor="@color/orange"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ln_icon1"
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/white_background"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_tourname">
+
+
+                        <TextView
+                            android:id="@+id/txt_tourAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:drawableEnd="@drawable/baseline_add_location_24"
+                            android:drawablePadding="5dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:padding="10dp"
+                            android:text="Phú Quốc, Kiên Giang"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/txt_tourSize"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:drawableEnd="@drawable/baseline_person_2_24"
+                            android:drawablePadding="5dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:padding="10dp"
+                            android:text="80"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_tourDeparture"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/txt_tourDeparture"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:drawableEnd="@drawable/baseline_access_time_24"
+                            android:drawablePadding="8dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:padding="10dp"
+                            android:text="Departure: 9:00 AM"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_tourAddress"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ln_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ln_icon1">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/iconBed"
+                            style="@android:style/Widget.Button"
+                            android:layout_width="0dp"
+                            android:layout_height="55dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="0.2"
+                            android:background="@drawable/icon_detail"
+                            android:drawableEnd="@drawable/baseline_bed_24"
+                            android:padding="15dp"
+                            android:text="Bed"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/iconBath"
+                            style="@android:style/Widget.Button"
+                            android:layout_width="0dp"
+                            android:layout_height="55dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="0.2"
+                            android:background="@drawable/icon_detail"
+                            android:drawableEnd="@drawable/baseline_bathtub_24"
+                            android:padding="16dp"
+                            android:text="Bath"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/iconWifi"
+                            style="@android:style/Widget.Button"
+                            android:layout_width="0dp"
+                            android:layout_height="55dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_weight="0.2"
+                            android:background="@drawable/icon_detail"
+                            android:drawableEnd="@drawable/baseline_wifi_24"
+                            android:padding="16dp"
+                            android:text="Wifi"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ctr1"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/white_background"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ln_icon">
+
+                        <TextView
+                            android:id="@+id/txt_tourDes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:padding="5dp"
+                            android:text="Mô tả chi tiết"
+                            android:textAlignment="center"
+                            android:textColor="@color/orange"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/txt_tourDes2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_semibold"
+                            android:lineHeight="26dp"
+                            android:paddingStart="15dp"
+                            android:paddingEnd="15dp"
+                            android:paddingBottom="25dp"
+                            android:text="Với cát trắng nguyên sơ cây cọ. Sau đó, bạn sẽ được khám phá thế giới dưới nước đầy màu sắc khi lặn tại Hòm Gầm Ghì. Sau bữa trưa ngon miệng được chuẩn bị bởi thuỷ thủ đoàn, bạn sẽ được cảm nhận bãi biển cát ngọc ngút ngàn và lặn ống thở trong làn nước trong vắt tại điểm đến cuối cùng, đó chính là Hòn Mây Rút.
+Chưa hết đâu nhé, vì"
+                            android:textAlignment="viewStart"
+
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_tourDes"
+                            tools:ignore="MissingConstraints" />
+
+                        <Button
+                            android:id="@+id/btnShowmore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="-10dp"
+                            android:background="@android:color/transparent"
+                            android:text="Nhiều hơn..."
+                            android:textAllCaps="false"
+                            android:textColor="@color/orange"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ctr2"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ctr1">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/lottieAnimationView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"
+                            app:lottie_rawRes="@raw/peoplerating"
+                            app:lottie_speed="0.5">
+
+                        </com.airbnb.lottie.LottieAnimationView>
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ctr3"
+                        android:layout_width="match_parent"
+                        android:layout_height="280dp"
+
+                        android:background="@drawable/white_background"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ctr2">
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Chính sách hủy miễn phí"
+                            android:textColor="@color/orange"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="380dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="20dp"
+                            android:fontFamily="@font/nunito_semibold"
+                            android:drawableStart="@drawable/baseline_monetization_on_24"
+                            android:drawablePadding="8dp"
+                            android:text="Bạn có thể được hoàn tiền toàn bộ hoặc một phần cho các vé đã chọn nếu bạn hủy đặt chỗ."
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="380dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="20dp"
+                            android:text="Thông tin về chúng tôi"
+                            android:textColor="@color/orange"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+                        <TextView
+                            android:id="@+id/name_main"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/white_background_edittext"
+                            android:drawableLeft="@drawable/baseline_perm_identity_24"
+                            android:drawablePadding="10dp"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:paddingStart="10dp"
+                            android:text="Nguyễn Tiến Đạt"
+                            android:textColorHint="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.428"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                        <TextView
+                            android:id="@+id/address_main"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/white_background_edittext"
+                            android:drawableLeft="@drawable/baseline_add_location_24"
+                            android:drawablePadding="10dp"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:paddingStart="10dp"
+                            android:text="46/1/22 Đông Hưng Thuận, Quận 12, TPHCM"
+                            android:textColorHint="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.428"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/name_main" />
+
+                        <TextView
+                            android:id="@+id/phone_main"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/white_background_edittext"
+                            android:drawableLeft="@drawable/baseline_phone_24"
+                            android:drawablePadding="10dp"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:paddingStart="10dp"
+                            android:text="0865267320"
+                            android:textColorHint="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.428"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/address_main" />
+
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ctr4"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ctr3">
+
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cardView1"
+                                    android:layout_width="180dp"
+                                    android:layout_height="130dp"
+                                    android:layout_marginStart="20dp"
+                                    app:cardCornerRadius="30dp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:background="@color/lavender"
+                                        android:gravity="center"
+                                        android:text="Trình Ngu"
+                                        android:textStyle="bold"></TextView>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="100dp"
+                                        android:layout_marginTop="30dp"
+                                        android:padding="10dp"
+                                        android:text="Very good, The tour is so meaningful, help me to reduce my stress"
+                                        android:textStyle="bold"></TextView>
+
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cardView2"
+                                    android:layout_width="180dp"
+                                    android:layout_height="130dp"
+                                    android:layout_marginStart="15dp"
+                                    app:cardCornerRadius="30dp"
+                                    app:layout_constraintStart_toEndOf="@+id/cardView1"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:background="@color/lavender"
+                                        android:gravity="center"
+                                        android:text="Trình Ngu"
+                                        android:textStyle="bold"></TextView>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="100dp"
+                                        android:layout_marginTop="30dp"
+                                        android:padding="10dp"
+                                        android:text="Very good, The tour is so meaningful, help me to reduce my stress"
+                                        android:textStyle="bold"></TextView>
+
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="180dp"
+                                    android:layout_height="130dp"
+                                    android:layout_marginStart="15dp"
+
+                                    app:cardCornerRadius="30dp"
+                                    app:layout_constraintStart_toEndOf="@+id/cardView2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:background="@color/lavender"
+                                        android:gravity="center"
+                                        android:text="Trình Ngu"
+                                        android:textStyle="bold"></TextView>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="100dp"
+                                        android:layout_marginTop="30dp"
+                                        android:padding="10dp"
+                                        android:text="Very good, The tour is so meaningful, help me to reduce my stress"
+                                        android:textStyle="bold"></TextView>
+
+
+                                </androidx.cardview.widget.CardView>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </HorizontalScrollView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ctr5"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ctr4">
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/bottom_detail">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_Booking"
+            android:layout_marginStart="180dp"
+            style="@android:style/Widget.Button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_loading"
+            android:text="Đặt ngay"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giá tiền"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/txt_tourPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="400.000đ"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            
+
+
+
+
+
+
+
+

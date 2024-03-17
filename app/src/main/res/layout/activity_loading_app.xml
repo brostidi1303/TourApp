@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c7e5f0"
+    tools:context=".LoadingApp">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="150dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loadapp1"
+        app:lottie_speed="3"></com.airbnb.lottie.LottieAnimationView>
+
+    <Button
+        android:layout_below="@+id/txt_Content"
+        android:id="@+id/btnLoading"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="420dp"
+        android:background="@drawable/btn_loading"
+        android:text="Bắt đầu"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/white">
+
+    </Button>
+
+    <ImageView
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:src="@drawable/t1"
+        android:scaleType="centerCrop">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/txt_Loading"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="120dp"
+        android:text="Chào mừng đến TourApp"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/txt_Content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_Loading"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="The use of traveling is to regulate imagination with reality, and instead of thinking of how things may be, see them as they are - Samuel Johnson"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+
+
+</RelativeLayout>

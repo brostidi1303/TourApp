@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookingActivity"
+    android:background="#c7e5f0">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            app:titleTextAppearance="@color/black"
+            android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
+            app:popupTheme="@style/MenuStyle"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ctr1"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="150dp"
+                    android:background="@drawable/white_background"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="MissingConstraints">
+
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/roundedImageView"
+                        android:layout_width="150dp"
+                        android:layout_height="105dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="25dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/a1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.36"
+                        app:riv_corner_radius="20dp" />
+
+                    <TextView
+                        android:id="@+id/txt_host"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="Tour information"
+                        android:textSize="15sp"
+                        android:textColor="@color/orange"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/roundedImageView"
+                        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
+                        app:layout_constraintHorizontal_bias="0.421"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.5" />
+
+                    <TextView
+                        android:id="@+id/txt_tournameBook"
+                        android:layout_width="225dp"
+                        android:layout_height="wrap_content"
+                        android:text="Du lịch Đà lạt"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:lineHeight="50dp"
+                        android:layout_marginTop="35dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.636"
+                        app:layout_constraintStart_toEndOf="@+id/txt_host"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.253" />
+
+                    <TextView
+                        android:id="@+id/txt_tourAddressBook"
+                        android:layout_width="225dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+
+                        android:maxLines="1"
+                        android:text="Phú Quốc, Kiên Giang "
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.384"
+                        app:layout_constraintStart_toEndOf="@+id/roundedImageView"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_tournameBook" />
+
+                    <TextView
+                        android:id="@+id/txt_tourDepartureBook"
+                        android:layout_width="225dp"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:text="Departure: 9:00 AM  "
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.384"
+                        app:layout_constraintStart_toEndOf="@+id/roundedImageView"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_tourAddressBook"
+                        app:layout_constraintVertical_bias="0.448" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ctr2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/white_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ctr1"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/txt_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Number of tourists"
+                        android:textColor="@color/orange"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="30dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_people"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:text="Adults"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="30dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_priceBook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="70dp"
+                        android:text="400.000đ"
+                        android:textColor="@color/purple_200"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="30dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/iconDecrease"
+                        style="@android:style/Widget.Button"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:onClick="decrease"
+                        android:background="@drawable/icon_detail"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        android:textSize="35sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintStart_toEndOf="@+id/txt_people"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.511"
+                        tools:ignore="MissingConstraints" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/iconIncrease"
+                        style="@android:style/Widget.Button"
+                        android:layout_width="70dp"
+                        android:layout_height="55dp"
+                        android:onClick="increase"
+                        android:background="@drawable/icon_detail"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        android:textSize="35sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.9"
+                        app:layout_constraintStart_toEndOf="@+id/txt_people"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.511"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/txt_amount"
+                        android:layout_width="65dp"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="22dp"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/iconIncrease"
+                        app:layout_constraintStart_toEndOf="@+id/iconDecrease"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ctr3"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/white_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ctr2"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/txt_peopleinfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Guest information"
+                        android:textColor="@color/orange"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="30dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <EditText
+                        android:id="@+id/book_peoplename"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_margin="14dp"
+                        android:background="@drawable/white_background_edittext"
+                        android:drawableLeft="@drawable/baseline_person_24"
+                        android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:hint="Fullname"
+                        android:inputType="text"
+                        android:paddingStart="10dp"
+                        android:textColorHint="#000000"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.428"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_peopleinfo" />
+
+                    <EditText
+                        android:id="@+id/book_edtphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_margin="14dp"
+                        android:background="@drawable/white_background_edittext"
+                        android:drawableLeft="@drawable/baseline_phone_24"
+                        android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:hint="Number Phone"
+                        android:inputType="phone"
+                        android:paddingStart="10dp"
+                        android:textColorHint="#000000"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.428"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/book_edtemail" />
+
+                    <EditText
+                        android:id="@+id/book_edtemail"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_margin="14dp"
+                        android:background="@drawable/white_background_edittext"
+                        android:drawableLeft="@drawable/baseline_email_24"
+                        android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:hint="Email"
+                        android:inputType="text|textEmailAddress|textAutoComplete"
+                        android:paddingStart="10dp"
+                        android:textColorHint="#000000"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.428"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/book_peoplename" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ctr4"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/white_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ctr3"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/txt_moreinfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Comment"
+                        android:textColor="@color/orange"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="30dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/edtmoreinfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/white_background_edittext"
+                        android:ems="3"
+                        android:hint="Write something here"
+                        android:inputType="text|textMultiLine"
+                        android:maxLines="3"
+                        android:padding="10dp"
+                        android:textAlignment="textStart"
+                        android:textColorHint="#000000"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.533"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_moreinfo"
+                        app:layout_constraintVertical_bias="0.0" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:id="@+id/ctr5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ctr4">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textinput"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:hint="@string/Payment_Method">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autotext"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:inputType="none" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ctr6"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ctr5"
+                    android:background="@drawable/white_background">
+
+                    <TextView
+                        android:id="@+id/txt_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Total Price"
+                        android:textColor="@color/orange"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!--<TextView
+                        android:id="@+id/txt_number1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:text="x1 adults"
+                        android:textColor="@color/orange"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_total" />-->
+
+                    <TextView
+                        android:id="@+id/txt_much"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="0"
+                        android:textColor="@color/orange"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.6"
+                        app:layout_constraintStart_toEndOf="@+id/txt_total"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ctr7"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ctr6"
+                    >
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/bottom_detail">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_Booking"
+            style="@android:style/Widget.Button"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_loading"
+            android:text="Pay Now"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
