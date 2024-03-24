@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tourapp.Interface.Api;
 import com.example.tourapp.Models.Booking;
@@ -40,16 +41,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BookingActivity extends AppCompatActivity {
-    String[] itemsPayment = {"Visa Card", "ZaloPay", "Momo"};
-    AutoCompleteTextView autoCompleteTextView;
-    ArrayAdapter<String> adapterItems;
     Toolbar toolbar;
     TextView value ,txt_Tourname,txt_tourAddressBook,txt_tourDepartureBook,txt_priceBook,txt_much;
     EditText book_edtemail,book_edtphone,book_peoplename;
     RoundedImageView roundedImageView;
     AppCompatButton btn_booking;
     int count = 0,pricetour,total=0;
-    String dam,fullnamebook,emailbook,phonebook,tokenbook, baseURL = RetrofitClient.getBaseUrl();;
+    String dam,fullnamebook,emailbook,phonebook,tokenbook,idbook1,idbook2, baseURL = RetrofitClient.getBaseUrl();;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -59,8 +57,6 @@ public class BookingActivity extends AppCompatActivity {
 
         init();
         toolbar();
-
-
 
         SharedPreferences sharedPreferences1 =getSharedPreferences("UserDatas",Context.MODE_PRIVATE);
         fullnamebook = sharedPreferences1.getString("fullname","");
@@ -98,16 +94,6 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 callApiBooking(dam);
-                Intent intent = new Intent(BookingActivity.this, ConfirmActivity.class);
-                startActivity(intent);
-            }
-        });
-        adapterItems = new ArrayAdapter<String>(this, R.layout.list_payment_method, itemsPayment);
-        autoCompleteTextView.setAdapter(adapterItems);
-        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
-                String items = adapterView.getItemAtPosition(i).toString();
             }
         });
 
@@ -141,24 +127,27 @@ public class BookingActivity extends AppCompatActivity {
                     BookingResponse bookingResponse = response.body();
                     if (bookingResponse != null) {
                         Booking booking = bookingResponse.getNewBooking();
-                        Log.d("Booker",bookingResponse.getNewBooking().toString()+"");
                         if (booking != null) {
-
-                            // In ra thông tin booking để kiểm tra
-                            Log.d("BookingInfo", booking.toString());
+                            Log.d("BookingInfo1","BookingId" + booking.get_id());
+                            idbook1 = booking.get_id();
                         } else {
                             Log.e("Error", "Booking object is null");
-                        }
+                        }//65fac0b75c0371694d3eb6fd
                     } else {
                         Log.e("Error", "BookingResponse object is null");
                     }
+                    Log.d("Idbook",idbook1);
+                    SharedPreferences.Editor bookingid = getSharedPreferences("idBooking",MODE_PRIVATE).edit();
+                    bookingid.putString("id_book",idbook1);
+                    bookingid.apply();
+                    Intent intent = new Intent(BookingActivity.this, ConfirmPay.class);
+                    startActivity(intent);
                 } else {
                     // In ra thông báo lỗi nếu có
                     Log.e("Error", "Unsuccessful response: " + response.message());
+                    Toast.makeText(BookingActivity.this, "Số lượng hành khách đã đầy", Toast.LENGTH_LONG).show();
                 }
             }
-
-
 
             @Override
             public void onFailure(Call<BookingResponse> call, Throwable t) {
@@ -173,7 +162,7 @@ public class BookingActivity extends AppCompatActivity {
         Call<BookingResponse> call = RetrofitClient
                 .getInstance()
                 .create(Api.class)
-                .createBooking(dam, booking, null);
+                .createBookingNoToken(dam,booking);
 
         call.enqueue(new Callback<BookingResponse>() {
             @Override
@@ -184,15 +173,21 @@ public class BookingActivity extends AppCompatActivity {
                         Booking booking = bookingResponse.getNewBooking();
                         Log.d("Booker",bookingResponse.getNewBooking().toString()+"");
                         if (booking != null) {
-
                             // In ra thông tin booking để kiểm tra
-                            Log.d("BookingInfo", booking.toString());
+                            Log.d("BookingInfo2","BookingId" + booking.get_id());
+                            idbook2 = booking.get_id();
                         } else {
                             Log.e("Error", "Booking object is null");
                         }
                     } else {
                         Log.e("Error", "BookingResponse object is null");
                     }
+                    Log.d("Idbook2",idbook2);
+                    SharedPreferences.Editor bookingid = getSharedPreferences("idBooking",MODE_PRIVATE).edit();
+                    bookingid.putString("id_book",idbook2);
+                    bookingid.apply();
+                    Intent intent = new Intent(BookingActivity.this, ConfirmPay.class);
+                    startActivity(intent);
                 } else {
                     // In ra thông báo lỗi nếu có
                     Log.e("Error", "Unsuccessful response: " + response.message());
@@ -219,6 +214,10 @@ public class BookingActivity extends AppCompatActivity {
         Log.d("Duma",totalAmount);
 
         totalAmount = totalAmount.replaceAll("\\D+", "");
+        SharedPreferences.Editor editor = getSharedPreferences("BookingtoPayment",MODE_PRIVATE).edit();
+        editor.putString("total", totalAmount);
+        editor.putString("quantity", quantity);
+        editor.apply();
 
         // Tạo đối tượng Booking và gửi yêu cầu tạo booking
         Booking booking = new Booking();
@@ -305,7 +304,6 @@ public class BookingActivity extends AppCompatActivity {
     private void init(){
         toolbar = findViewById(R.id.toolbar);
         value = findViewById(R.id.txt_amount);
-        autoCompleteTextView = findViewById(R.id.autotext);
         btn_booking = findViewById(R.id.btn_Booking);
         roundedImageView = findViewById(R.id.roundedImageView);
         txt_Tourname = findViewById(R.id.txt_tournameBook);
@@ -348,6 +346,7 @@ public class BookingActivity extends AppCompatActivity {
             total = pricetour * count;
             String formattedTotal = formatCurrency(total);
             txt_much.setText(formattedTotal);
+
         }
 
     }

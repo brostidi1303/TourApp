@@ -18,7 +18,8 @@ public class Booking {
     private String tourImage;
 
     // Constructors
-    public Booking() {
+    public Booking(){
+
     }
 
     public Booking(String tourId, String userId, String tourName, String fullName, String email, String phone, Date departureDate, Date dateCreate, int quantity, int totalAmount, String _id, String paymentStatus, String tourImage) {
@@ -37,7 +38,6 @@ public class Booking {
         this.tourImage = tourImage;
     }
 
-    // Getters and setters
     public String getTourId() {
         return tourId;
     }

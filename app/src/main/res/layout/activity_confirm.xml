@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_Content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="480dp"
         android:background="@drawable/btn_loading"
         android:text="Về trang chủ"
         android:textColor="@color/white"
@@ -37,9 +37,9 @@
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
-        android:text="Bạn đã đặt chỗ thành công"
+        android:text="Bạn đã thanh toán thành công"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="28sp"
         android:textStyle="bold" />
 
     <TextView

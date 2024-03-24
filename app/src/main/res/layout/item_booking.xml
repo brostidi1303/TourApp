@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -41,8 +42,7 @@
             android:text="Ngày đặt: 13/03/2024 "
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/HistoryImage"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,7 +55,7 @@
             android:text="Phú Quốc, Kiên Giang "
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="10dp"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/HistoryImage"
             app:layout_constraintTop_toBottomOf="@+id/dateCreate" />
@@ -68,23 +68,34 @@
             android:text="Departure: 9:00 AM  "
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/HistoryImage"
             app:layout_constraintTop_toBottomOf="@+id/history_tour_name" />
 
         <TextView
             android:id="@+id/paymentStatus"
-            android:layout_width="225dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Status: Processing "
+            android:text="Status:  "
             android:textColor="@color/orange"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/HistoryImage"
+            app:layout_constraintTop_toBottomOf="@+id/departureDate" />
+
+        <TextView
+            android:id="@+id/payment"
+            android:layout_width="wrap_content"
+            android:text="Thanh toán"
+            android:textStyle="bold"
+            android:textColor="@color/blue_1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/departureDate" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

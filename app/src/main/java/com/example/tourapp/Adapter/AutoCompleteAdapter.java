@@ -14,8 +14,10 @@ import androidx.annotation.Nullable;
 import com.example.tourapp.Models.Tour;
 import com.example.tourapp.R;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class AutoCompleteAdapter extends ArrayAdapter<Tour> {
     private List<Tour> tourListFull;
@@ -42,7 +44,7 @@ public class AutoCompleteAdapter extends ArrayAdapter<Tour> {
 
         TextView tv_tour_name = convertView.findViewById(R.id.tv_tour_name);
         Tour tour = getItem(position);
-        tv_tour_name.setText(tour.getAddress());
+        tv_tour_name.setText(tour.getAddress().toLowerCase());
 
         return convertView;
     }
@@ -59,13 +61,13 @@ public class AutoCompleteAdapter extends ArrayAdapter<Tour> {
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
                 for (Tour tour: tourListFull){
-                    if(tour.getAddress().toLowerCase().contains(filterPattern)){
+                    if(removeAccents(tour.getAddress().toLowerCase()).contains(removeAccents(filterPattern))){
                         suggestions.add(tour);
                     }
                 }
             }
             results.values = suggestions;
-            results.count =suggestions.size();
+            results.count = suggestions.size();
 
             return results;
         }
@@ -73,13 +75,23 @@ public class AutoCompleteAdapter extends ArrayAdapter<Tour> {
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             clear();
-            addAll((List)results.values);
+            if (results.values != null) {
+                addAll((List) results.values);
+            }
             notifyDataSetChanged();
         }
 
         @Override
         public CharSequence convertResultToString(Object resultValue) {
-            return ((Tour)resultValue).getAddress();
+            return ((Tour) resultValue).getAddress().toLowerCase();
         }
+
+        private String removeAccents(String input) {
+            String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+            Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+            return pattern.matcher(normalized).replaceAll("");
+        }
+
     };
+
 }

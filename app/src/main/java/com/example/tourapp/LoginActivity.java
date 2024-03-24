@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     // In ra lỗi nếu có
                     Log.e("Login", "Error: " + response.message());
-                    Toast.makeText(LoginActivity.this, "Login failed: " + response.message(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_LONG).show();
                 }
             }
 

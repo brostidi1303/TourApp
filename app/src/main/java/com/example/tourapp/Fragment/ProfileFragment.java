@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tourapp.ChangePasswordActivity;
 import com.example.tourapp.Interface.Api;
 import com.example.tourapp.LoginActivity;
 import com.example.tourapp.MainActivity;
@@ -34,7 +35,7 @@ import retrofit2.Response;
 public class ProfileFragment extends Fragment {
     View view;
     TextView txt_id,txt_email, txt_phone,txt_info,txt_fullname;
-    AppCompatButton btnSignin,btn_GoSignUp,btn_updateUser, btn_logOut;
+    AppCompatButton btnSignin,btn_GoSignUp,btn_updateUser, btn_logOut, btn_changePassword;
     ConstraintLayout constraintLayout;
     LinearLayout ln_user;
     String token,idUser;
@@ -51,7 +52,7 @@ public class ProfileFragment extends Fragment {
         txt_phone = view.findViewById(R.id.userphone);
         btnSignin = view.findViewById(R.id.btnSignin);
         btn_GoSignUp = view.findViewById(R.id.btn_GoSignUp);
-
+        btn_changePassword = view.findViewById(R.id.btn_changePassword);
         btn_updateUser = view.findViewById(R.id.btn_updateUser);
         btn_logOut = view.findViewById(R.id.btn_logOut);
 
@@ -75,6 +76,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserDatas", Context.MODE_PRIVATE);
         token = sharedPreferences.getString("Token", "");
         Log.d("dienkhung",token);
@@ -85,6 +87,7 @@ public class ProfileFragment extends Fragment {
             btnSignin.setVisibility(View.INVISIBLE);
             btn_GoSignUp.setVisibility(View.INVISIBLE);
             constraintLayout.setVisibility(View.VISIBLE);
+            btn_logOut.setVisibility(View.VISIBLE);
             ln_user.setVisibility(View.VISIBLE);
             btn_logOut.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -99,11 +102,21 @@ public class ProfileFragment extends Fragment {
                     startActivity(intent);
                 }
             });
+
+            btn_changePassword.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(), ChangePasswordActivity.class);
+                    startActivity(intent);
+                }
+            });
         }else {
             btnSignin.setVisibility(View.VISIBLE);
             btn_GoSignUp.setVisibility(View.VISIBLE);
             constraintLayout.setVisibility(View.INVISIBLE);
             ln_user.setVisibility(View.INVISIBLE);
+            btn_logOut.setVisibility(View.INVISIBLE);
+
         }
 
         if (!token.isEmpty()) {
@@ -124,6 +137,9 @@ public class ProfileFragment extends Fragment {
                                 txt_fullname.setText(user.getFullName());
                                 txt_email.setText(user.getEmail());
                                 txt_phone.setText(user.getPhone());
+                                SharedPreferences.Editor editor = getActivity().getSharedPreferences("User",Context.MODE_PRIVATE).edit();
+                                editor.putString("fullname",user.getFullName());
+                                editor.apply();
                             }
                         }
 
@@ -149,10 +165,11 @@ public class ProfileFragment extends Fragment {
         SharedPreferences preferences = getActivity().getSharedPreferences("UserDatas", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.remove("Token");
-        editor.remove("fullname");
-        editor.remove("email");
-        editor.remove("phone");
         editor.apply();
+
+        SharedPreferences.Editor editor1 = getActivity().getSharedPreferences("User",Context.MODE_PRIVATE).edit();
+        editor1.remove("fullname");
+        editor1.apply();
 
         Intent intent = new Intent(getContext(), MainActivity.class);
         startActivity(intent);

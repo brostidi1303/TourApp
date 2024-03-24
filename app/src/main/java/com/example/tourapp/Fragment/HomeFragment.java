@@ -49,7 +49,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
     View view;
     RecyclerView recyclerView;
-    ImageSlider imageSlider;
+    ImageSlider imageSlider, imageSlider1;
     TextView txt_hiUser;
     AppCompatButton btn_seemore;
     String fullname;
@@ -66,16 +66,8 @@ public class HomeFragment extends Fragment {
         edt_search = view.findViewById(R.id.edt_search);
         txt_hiUser =view.findViewById(R.id.txt_hiUser);
         imageSlider = view.findViewById(R.id.imageSlider);
-        btn_seemore = view.findViewById(R.id.btn_seemore);
+        imageSlider1 = view.findViewById(R.id.imageSlider1);
 
-
-        btn_seemore.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceType")
-            @Override
-            public void onClick(View v) {
-                
-            }
-        });
 
         ArrayList<SlideModel> slideModels = new ArrayList<>();
         slideModels.add(new SlideModel(R.drawable.a6,ScaleTypes.CENTER_CROP));
@@ -85,8 +77,15 @@ public class HomeFragment extends Fragment {
 
         imageSlider.setImageList(slideModels,ScaleTypes.CENTER_CROP);
 
+        ArrayList<SlideModel> slideModels1 = new ArrayList<>();
+        slideModels1.add(new SlideModel(R.drawable.a5,ScaleTypes.CENTER_CROP));
+        slideModels1.add(new SlideModel(R.drawable.a10,ScaleTypes.CENTER_CROP));
+        slideModels1.add(new SlideModel(R.drawable.a14,ScaleTypes.CENTER_CROP));
 
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserDatas", Context.MODE_PRIVATE);
+        imageSlider1.setImageList(slideModels1,ScaleTypes.CENTER_CROP);
+
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("User", Context.MODE_PRIVATE);
         fullname = sharedPreferences.getString("fullname","");
         Log.d("homefull",fullname);
         if (fullname.isEmpty()){

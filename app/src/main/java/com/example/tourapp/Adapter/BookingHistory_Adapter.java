@@ -1,6 +1,8 @@
 package com.example.tourapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tourapp.ConfirmPay;
+import com.example.tourapp.DetailActivity;
 import com.example.tourapp.Models.Booking;
 import com.example.tourapp.Models.BookingHistory;
 import com.example.tourapp.R;
@@ -50,7 +54,7 @@ public class BookingHistory_Adapter extends RecyclerView.Adapter<BookingHistory_
         }
 
         // Sử dụng SimpleDateFormat để đọc ngày
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm, dd/MM/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String strDateCreate = dateFormat.format(bookingList.get(position).getDateCreate());
         holder.dateCreate.setText("Ngày Đặt: "+strDateCreate);
 
@@ -60,6 +64,22 @@ public class BookingHistory_Adapter extends RecyclerView.Adapter<BookingHistory_
         holder.departureDate.setText("Ngày đi: "+strDepartureDate);
 
         holder.paymentStatus.setText(bookingList.get(position).getPaymentStatus());
+
+        if (bookingList.get(position).getPaymentStatus().equals("Đã thanh toán")) {
+            holder.payment.setVisibility(View.GONE);
+        } else {
+            holder.payment.setVisibility(View.VISIBLE);
+        }
+        holder.payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(bookingContext, ConfirmPay.class);
+                intent.putExtra("_idBook",bookingList.get(position).get_id());
+                intent.putExtra("label", "bookingHistory");
+                Log.d("get_id",bookingList.get(position).get_id());
+                bookingContext.startActivity(intent);
+            }
+        });
     }
 
 
@@ -70,7 +90,7 @@ public class BookingHistory_Adapter extends RecyclerView.Adapter<BookingHistory_
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView dateCreate,tourname,departureDate,paymentStatus;
+        TextView dateCreate,tourname,departureDate,paymentStatus,payment;
         ImageView HistoryImage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +99,7 @@ public class BookingHistory_Adapter extends RecyclerView.Adapter<BookingHistory_
             departureDate = itemView.findViewById(R.id.departureDate);
             paymentStatus = itemView.findViewById(R.id.paymentStatus);
             HistoryImage = itemView.findViewById(R.id.HistoryImage);
+            payment = itemView.findViewById(R.id.payment);
         }
     }
 }

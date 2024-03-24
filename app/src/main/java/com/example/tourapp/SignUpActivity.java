@@ -74,11 +74,11 @@ public class SignUpActivity extends AppCompatActivity {
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                 RegisterResponse registerResponse = response.body();
                 if(response.isSuccessful()){
-                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                     startActivity(intent);
-                    Toast.makeText(SignUpActivity.this, "Register Success", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUpActivity.this, "Đăng kí thành công", Toast.LENGTH_LONG).show();
                 }else {
-                    Toast.makeText(SignUpActivity.this, response.message(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUpActivity.this, "Vui lòng nhập đầy đủ thông tin !", Toast.LENGTH_LONG).show();
                 }
             }
 

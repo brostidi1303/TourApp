@@ -36,6 +36,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 forgotpassword();
+                Intent intent = new Intent(ForgotPasswordActivity.this, LoginActivity.class);
+                startActivity(intent);
+                Toast.makeText(ForgotPasswordActivity.this, "Đã gửi đến gmail của bạn !", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -53,9 +56,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ForgotResponse> call, Response<ForgotResponse> response) {
                 ForgotResponse forgotResponse = response.body();
-                Intent intent = new Intent(ForgotPasswordActivity.this, MainActivity.class);
-                startActivity(intent);
-                Toast.makeText(ForgotPasswordActivity.this, "Successfully sent to your gmail", Toast.LENGTH_LONG).show();
             }
 
             @Override

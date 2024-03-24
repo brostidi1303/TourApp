@@ -26,7 +26,7 @@ public class UpdateUserActivity extends AppCompatActivity {
     EditText edt_newfull_Name, edt_new_email,edt_new_phone;
     Button btn_Confirm_updateUser;
     SharedPreferences sharedPreferences;
-    String token;
+    String token,Email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +40,9 @@ public class UpdateUserActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("UserDatas", Context.MODE_PRIVATE);
         token = sharedPreferences.getString("Token", "");
         Log.d("dienkhung12",token);
+        Email = sharedPreferences.getString("email","");
+        Log.d("email",Email);
+        edt_new_email.setText(Email);
 
         btn_Confirm_updateUser.setOnClickListener(new View.OnClickListener() {
             @Override

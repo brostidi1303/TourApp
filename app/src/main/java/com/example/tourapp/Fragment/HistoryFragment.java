@@ -56,6 +56,9 @@ public class HistoryFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_history, container, false);
         constraintLayout = view.findViewById(R.id.historyFG);
         initRecycleview();
+
+
+
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserDatas", Context.MODE_PRIVATE);
         token = sharedPreferences.getString("Token", "");
         Log.d("HistoryFG",token);
@@ -137,11 +140,15 @@ public class HistoryFragment extends Fragment {
                     BookingHistory bookingHistory = response.body();
                     if (bookingHistory != null && bookingHistory.getHistoryBookings() != null) {
                         bookingList.addAll(bookingHistory.getHistoryBookings());
-                        bookingHistoryAdapter = new BookingHistory_Adapter(getContext(), bookingList);
-                        recyclerView.setAdapter(bookingHistoryAdapter);
-                        bookingHistoryAdapter.notifyDataSetChanged();
+                        if (bookingList.isEmpty()) {
+                            Toast.makeText(getActivity(), "Bạn chưa đặt tour nào !!!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            bookingHistoryAdapter = new BookingHistory_Adapter(getContext(), bookingList);
+                            recyclerView.setAdapter(bookingHistoryAdapter);
+                            bookingHistoryAdapter.notifyDataSetChanged();
+                        }
                     } else {
-                        Toast.makeText(getActivity(), "Empty response", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"Error", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(getActivity(), "Error: " + response.message(), Toast.LENGTH_SHORT).show();
