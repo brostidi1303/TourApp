@@ -1,5 +1,6 @@
 package com.example.tourapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.tourapp.ConfirmPay;
 import com.example.tourapp.DetailActivity;
 import com.example.tourapp.Models.Booking;
@@ -41,17 +43,18 @@ public class BookingHistory_Adapter extends RecyclerView.Adapter<BookingHistory_
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BookingHistory_Adapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BookingHistory_Adapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.tourname.setText("Tên: "+ bookingList.get(position).getTourName());
 
         String imagePath = bookingList.get(position).getTourImage();
         if (imagePath != null && !imagePath.isEmpty()) {
-            Picasso.get()
-                    .load(baseURL + imagePath)
+            Glide.with(bookingContext)
+                    .load(imagePath)
                     .placeholder(R.drawable.a1)
                     .error(R.drawable.a1)
                     .into(holder.HistoryImage);
         }
+
 
         // Sử dụng SimpleDateFormat để đọc ngày
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -81,8 +84,6 @@ public class BookingHistory_Adapter extends RecyclerView.Adapter<BookingHistory_
             }
         });
     }
-
-
 
     @Override
     public int getItemCount() {

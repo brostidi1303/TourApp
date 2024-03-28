@@ -37,7 +37,7 @@
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
-        android:text="Bạn đã thanh toán thành công"
+        android:text="Bạn đã đặt chỗ thành công"
         android:textColor="@color/black"
         android:textSize="28sp"
         android:textStyle="bold" />

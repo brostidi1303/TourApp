@@ -59,7 +59,7 @@ public class UpdateUserActivity extends AppCompatActivity {
         String phone = edt_new_phone.getText().toString().trim();
 
         if (fullname.isEmpty() || email.isEmpty() || phone.isEmpty()) {
-            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Làm ơn điền đầy đủ thông tin !", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -85,11 +85,11 @@ public class UpdateUserActivity extends AppCompatActivity {
                             Log.d("mesd", "Phone: " + user.getPhone());
                         }
 
-                        Toast.makeText(UpdateUserActivity.this, "Update Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UpdateUserActivity.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(UpdateUserActivity.this, MainActivity.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(UpdateUserActivity.this, "User information is null", Toast.LENGTH_LONG).show();
+                        Toast.makeText(UpdateUserActivity.this, "Thông tin người dùng không hợp lệ", Toast.LENGTH_LONG).show();
                     }
                 } else {
                     Toast.makeText(UpdateUserActivity.this, "Update failed", Toast.LENGTH_SHORT).show();

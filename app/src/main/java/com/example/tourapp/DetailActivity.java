@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.tourapp.Interface.Api;
 import com.example.tourapp.Models.Tour;
 import com.example.tourapp.Models.TourDetail;
@@ -126,7 +127,8 @@ public class DetailActivity extends AppCompatActivity {
 
                     if (tour != null) {
                         Log.d("detail",tour.toString());
-                        Picasso.get().load(baseURL + tour.getImagePath())
+                        Glide.with(DetailActivity.this)
+                                .load(tour.getImagePath())
                                 .placeholder(R.drawable.a1)
                                 .error(R.drawable.a1)
                                 .into(imageDetail);

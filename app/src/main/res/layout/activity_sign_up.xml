@@ -32,13 +32,14 @@
                 android:id="@+id/txt_Login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
+                android:text="Đăng kí tài khoản"
+                android:textColor="#1E90FF"
+
                 android:textSize="40sp"
                 android:textStyle="bold"
-                android:text="Create your account"
-                android:textColor="#1E90FF"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_login"/>
+                app:layout_constraintTop_toBottomOf="@+id/iv_login" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"

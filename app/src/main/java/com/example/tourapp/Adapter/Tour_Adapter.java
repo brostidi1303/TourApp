@@ -49,17 +49,17 @@ public class Tour_Adapter extends RecyclerView.Adapter<Tour_Adapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull Tour_Adapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
         String imagePath = tourList.get(position).getImagePath();
         if (imagePath != null && !imagePath.isEmpty()) {
-            Picasso.get()
-                    .load(baseURL + imagePath)
+            Glide.with(tourContext)
+                    .load(imagePath)
                     .placeholder(R.drawable.a1)
                     .error(R.drawable.a1)
                     .into(holder.image_tour);
-
         }
+
         holder.tour_name.setText(tourList.get(position).getTourName());
-        //holder.tour_price.setText(tourList.get(position).getPrice().intValue());
 
         Number price = tourList.get(position).getPrice();
         if (price != null) {

@@ -78,30 +78,26 @@
                         android:id="@+id/txt_tournameBook"
                         android:layout_width="225dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp"
+                        android:lineHeight="50dp"
+                        android:maxLines="1"
                         android:text="Du lịch Đà lạt"
                         android:textSize="25sp"
                         android:textStyle="bold"
-                        android:maxLines="1"
-                        android:lineHeight="50dp"
-                        android:layout_marginTop="35dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.636"
-                        app:layout_constraintStart_toEndOf="@+id/txt_host"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.253" />
+                        app:layout_constraintStart_toEndOf="@+id/roundedImageView"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/txt_tourAddressBook"
                         android:layout_width="225dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-
                         android:maxLines="1"
                         android:text="Phú Quốc, Kiên Giang "
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.384"
                         app:layout_constraintStart_toEndOf="@+id/roundedImageView"
                         app:layout_constraintTop_toBottomOf="@+id/txt_tournameBook" />
 
@@ -115,7 +111,6 @@
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.384"
                         app:layout_constraintStart_toEndOf="@+id/roundedImageView"
                         app:layout_constraintTop_toBottomOf="@+id/txt_tourAddressBook"
                         app:layout_constraintVertical_bias="0.448" />

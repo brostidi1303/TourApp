@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:text="Update User"
+        android:text="Cập nhật người dùng"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"

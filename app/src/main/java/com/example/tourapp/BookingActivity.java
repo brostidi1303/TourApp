@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.tourapp.Interface.Api;
 import com.example.tourapp.Models.Booking;
 import com.example.tourapp.Models.BookingResponse;
@@ -118,7 +119,6 @@ public class BookingActivity extends AppCompatActivity {
                 .getInstanceAccess(tokenbook)
                 .create(Api.class)
                 .createBooking(dam, booking, "Bearer " + tokenbook);
-
 
         call.enqueue(new Callback<BookingResponse>() {
             @Override
@@ -246,7 +246,8 @@ public class BookingActivity extends AppCompatActivity {
                     Tour tour = tourDetail.getTour();
                     if (tour != null) {
                         Log.d("detail45",tour.toString());
-                        Picasso.get().load(baseURL + tour.getImagePath())
+                        Glide.with(BookingActivity.this)
+                                .load(tour.getImagePath())
                                 .placeholder(R.drawable.a1)
                                 .error(R.drawable.a1)
                                 .into(roundedImageView);
@@ -350,7 +351,6 @@ public class BookingActivity extends AppCompatActivity {
         }
 
     }
-
     private String formatCurrency(int amount) {
         return String.format(Locale.getDefault(), "%,d VNĐ", amount);
     }

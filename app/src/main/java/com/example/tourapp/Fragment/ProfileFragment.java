@@ -165,6 +165,9 @@ public class ProfileFragment extends Fragment {
         SharedPreferences preferences = getActivity().getSharedPreferences("UserDatas", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.remove("Token");
+        editor.remove("fullname");
+        editor.remove("email");
+        editor.remove("phone");
         editor.apply();
 
         SharedPreferences.Editor editor1 = getActivity().getSharedPreferences("User",Context.MODE_PRIVATE).edit();
