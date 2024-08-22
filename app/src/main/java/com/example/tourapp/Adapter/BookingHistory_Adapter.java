@@ -56,12 +56,10 @@ public class BookingHistory_Adapter extends RecyclerView.Adapter<BookingHistory_
         }
 
 
-        // Sử dụng SimpleDateFormat để đọc ngày
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String strDateCreate = dateFormat.format(bookingList.get(position).getDateCreate());
         holder.dateCreate.setText("Ngày Đặt: "+strDateCreate);
 
-        // Nếu bạn muốn hiển thị ngày xuất phát dưới dạng "HH:mm a", bạn cũng cần chuyển định dạng
         SimpleDateFormat dateFormatDeparture = new SimpleDateFormat("HH:mm, dd/MM/yyyy");
         String strDepartureDate = dateFormatDeparture.format(bookingList.get(position).getDepartureDate());
         holder.departureDate.setText("Ngày đi: "+strDepartureDate);

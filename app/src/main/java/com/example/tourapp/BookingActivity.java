@@ -104,10 +104,8 @@ public class BookingActivity extends AppCompatActivity {
     private void callApiBooking(String dam) {
 
         if (tokenbook.isEmpty()) {
-            // Nếu có token, sử dụng phương thức createBooking với token
             createBookingWithoutToken(dam);
         } else {
-            // Nếu không có token, sử dụng phương thức createBooking mà không có token
             createBookingWithToken(dam);
         }
     }
@@ -143,7 +141,6 @@ public class BookingActivity extends AppCompatActivity {
                     Intent intent = new Intent(BookingActivity.this, ConfirmPay.class);
                     startActivity(intent);
                 } else {
-                    // In ra thông báo lỗi nếu có
                     Log.e("Error", "Unsuccessful response: " + response.message());
                     Toast.makeText(BookingActivity.this, "Số lượng hành khách đã đầy", Toast.LENGTH_LONG).show();
                 }
@@ -173,7 +170,6 @@ public class BookingActivity extends AppCompatActivity {
                         Booking booking = bookingResponse.getNewBooking();
                         Log.d("Booker",bookingResponse.getNewBooking().toString()+"");
                         if (booking != null) {
-                            // In ra thông tin booking để kiểm tra
                             Log.d("BookingInfo2","BookingId" + booking.get_id());
                             idbook2 = booking.get_id();
                         } else {
@@ -189,7 +185,6 @@ public class BookingActivity extends AppCompatActivity {
                     Intent intent = new Intent(BookingActivity.this, ConfirmPay.class);
                     startActivity(intent);
                 } else {
-                    // In ra thông báo lỗi nếu có
                     Log.e("Error", "Unsuccessful response: " + response.message());
                 }
             }
@@ -219,7 +214,6 @@ public class BookingActivity extends AppCompatActivity {
         editor.putString("quantity", quantity);
         editor.apply();
 
-        // Tạo đối tượng Booking và gửi yêu cầu tạo booking
         Booking booking = new Booking();
         booking.setTourId(dam);
         booking.setFullName(fullname);

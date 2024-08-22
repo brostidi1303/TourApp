@@ -86,16 +86,13 @@ public class ChangePasswordActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        // Tạo một RequestBody từ đối tượng JSONObject
         RequestBody body = RequestBody.create(MediaType.parse("application/json"), requestBody.toString());
 
-        // Khởi tạo một Call để gửi yêu cầu thay đổi mật khẩu
         Call<ChangePasswordResponse> call = RetrofitClient
                 .getInstanceAccess(token)
                 .create(Api.class)
                 .changePassword(body);
 
-        // Thực hiện yêu cầu bất đồng bộ
         call.enqueue(new Callback<ChangePasswordResponse>() {
             @Override
             public void onResponse(Call<ChangePasswordResponse> call, Response<ChangePasswordResponse> response) {
@@ -106,12 +103,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
                         Intent intent = new Intent(ChangePasswordActivity.this, MainActivity.class);
                         startActivity(intent);
                         Toast.makeText(ChangePasswordActivity.this, /*message*/ "Đổi mật khẩu thành công", Toast.LENGTH_LONG).show();
-                        // Xử lý thông báo thành công
-                        // Ví dụ: Hiển thị thông báo thành công cho người dùng
+
                     }
                 } else {
-                    // Xử lý lỗi khi yêu cầu không thành công
-                    // Ví dụ: Hiển thị thông báo lỗi cho người dùng
+
                     Toast.makeText(ChangePasswordActivity.this, "Failed to change password", Toast.LENGTH_SHORT).show();
                 }
 
@@ -119,8 +114,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ChangePasswordResponse> call, Throwable t) {
-                // Xử lý lỗi khi không thể kết nối tới server
-                // Ví dụ: Hiển thị thông báo lỗi cho người dùng
+
                 Toast.makeText(ChangePasswordActivity.this, "Failed to connect to server", Toast.LENGTH_SHORT).show();
                 Log.d("Error", t.getMessage());
             }

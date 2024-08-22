@@ -90,11 +90,9 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d("mes", "Email: " + user.getEmail());
                             Log.d("mes", "Phone: " + user.getPhone());
                         }
-
                         realtoken = loginResponse.getToken();
                         Log.d("mes", "Token: " + realtoken);
 
-                        // Lưu giá trị token vào SharedPreferences
                         SharedPreferences.Editor editor = getSharedPreferences("UserDatas", MODE_PRIVATE).edit();
                         editor.putString("Token", realtoken);
                         editor.putString("fullname",user.getFullName());
@@ -102,17 +100,15 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString("phone",user.getPhone());
                         editor.apply();
 
-                        // Chuyển sang MainActivity
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
-                        finish(); // Kết thúc activity hiện tại để ngăn người dùng quay lại
+                        finish();
 
                         Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(LoginActivity.this, "Thông tin User không có", Toast.LENGTH_LONG).show();
                     }
                 } else {
-                    // In ra lỗi nếu có
                     Log.e("Login", "Error: " + response.message());
                     Toast.makeText(LoginActivity.this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_LONG).show();
                 }
@@ -120,7 +116,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                // In ra lỗi nếu có
                 Log.e("Login", "Error: " + t.getMessage());
                 Toast.makeText(LoginActivity.this, "Failed: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }

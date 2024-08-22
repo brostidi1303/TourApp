@@ -66,7 +66,7 @@ public class HistoryFragment extends Fragment {
             constraintLayout.setVisibility(View.VISIBLE);
             fetchData(token);
         } else {
-            Log.e("HistoryFragment", "constraintLayout is null or token is empty");
+            Log.e("HistoryFragment", "HS is null or token is empty");
             constraintLayout.setVisibility(View.INVISIBLE);
             openNoticeDialog(Gravity.CENTER);
         }

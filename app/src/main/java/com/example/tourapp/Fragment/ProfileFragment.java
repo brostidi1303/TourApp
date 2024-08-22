@@ -120,7 +120,6 @@ public class ProfileFragment extends Fragment {
         }
 
         if (!token.isEmpty()) {
-            // Gọi endpoint Retrofit chỉ khi token có sẵn
             Call<LoginResponse> call = RetrofitClient
                     .getInstanceAccess(token)
                     .create(Api.class)
@@ -144,14 +143,12 @@ public class ProfileFragment extends Fragment {
                         }
 
                     } else {
-                        // Xử lý khi phản hồi không thành công
                         Log.e("ProfileFragment", "API call failed with response code: " + response.code());
                     }
                 }
 
                 @Override
                 public void onFailure(Call<LoginResponse> call, Throwable t) {
-                    // Xử lý lỗi khi gọi API không thành công
                     Log.e("ProfileFragment", "API call failed: " + t.getMessage());
                 }
             });

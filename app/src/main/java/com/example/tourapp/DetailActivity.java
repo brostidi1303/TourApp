@@ -52,7 +52,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (btnShowmore.getText().toString().equalsIgnoreCase("Nhiều hơn..."))
                 {
-                    txt_Des2.setMaxLines(Integer.MAX_VALUE);//your TextView
+                    txt_Des2.setMaxLines(Integer.MAX_VALUE);
                     btnShowmore.setText("Ít hơn");
                 }
                 else
